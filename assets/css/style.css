@@ -102,8 +102,8 @@ main {
 #question-area {
     max-width: 94%;
     margin-top: 20px;
-    background-color: #83bde9;
-    color: white;
+    background-color: #ccced0;
+    color: #333;
     border-radius: 10px;
     padding: 20px;
     font-size: 22px;
