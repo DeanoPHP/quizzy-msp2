@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --bangers-font: 
+}
+
+h1 {
+    color: rgb(219, 102, 182);
+}
+
+p {
+    color: rgb(11, 168, 230);
+}
+
+* {
+    box-sizing: border-box;
+    border: 0;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+}
+
+/* --------------------------index.html */
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fafafa;
+}
+
+#game-image {
+    width: 100%;
+    height: 60%;
+    background-image: url('../images/quiz-background.avif');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.content p {
+    font-size: 4rem;
+    font-family: bangers;
+    color: rgb(219, 102, 182);
+}
+
+.btn {
+    width: 160px;
+    height: 60px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #fffc00;
+    color: rgb(219, 102, 182);
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
