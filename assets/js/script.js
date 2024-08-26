@@ -140,6 +140,62 @@ $(document).ready(function() {
         } 
     }
 
+    const setting_to_storage = (score) => {
+        let get_from_storage = getFromLocalStorage()
+
+        if (score > get_from_storage) {
+            localStorage.setItem('score', score)
+        }
+    }
+
+    const getFromLocalStorage = () => {
+        const result = JSON.parse(localStorage.getItem('score'))
+        return result
+    }
+
+    const game_over = () => {
+        // Get the div that is going to display the message
+        $('#game-over').css({
+            visibility: 'visible'
+        })
+
+        $('#end-game')[0].play()
+
+        // display a message to the user saying well done and display the users score
+        // $('#user_score').text(global.score)
+
+        // setting the score in local storage
+        const highest_score = global.score
+        setting_to_storage(highest_score)
+
+        // display the user highest score sor far
+        const highest_recorded_score = getFromLocalStorage()
+        $('#game-over').append('<h1>Game Over</h1>')
+
+        if (global.score > highest_recorded_score) {
+            $('#game-over').append('<p>Whoop Whoop you have broke your record</p>')
+            // Add some graphics and music video 
+        } else if (global.score < 10) {
+            $('#game-over').append(`<p>A Monkey could do better than ${global.score}</p>`)
+        } else if (global.score > 10 && global.score < 20) {
+            $('#game-over').append(`<p>${global.score} is not bad. Keep trying I'm sure you can do better</p>`)
+        } else {
+            $('#game-over').append(`<p>${global.score} is a great effort</p>`)
+        }
+
+        $('#game-over').append(`<p>Your highest score so far is ${highest_recorded_score}</p>`)
+        $('#game-over').append(`<p>By Dean Lark</p>`)
+        
+        // set the score and all setting from above back to start game settings. Maybe put this in a function of its own
+        global.score = 0
+        global.incorrect = 0;
+
+        // Redirect the user back to index 
+        setTimeout(() => {
+            window.location.href = global.url
+        }, 4000)
+    }
+
     const page_switch = () => {
         switch (global.pathname) {
             case '/':
