@@ -66,3 +66,129 @@ body {
     font-size: 20px;
     cursor: pointer;
 }
+
+/* --------------------------------------game.html */
+
+nav {
+    width: 100vw;
+    height: 60px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#highest-score-so-far {
+    color: #fafafa;
+    font-size: 1.2rem;
+}
+
+#highestScore {
+    font-size: 2rem;
+    color: red;
+    font-weight: bold;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#question-area {
+    max-width: 94%;
+    margin-top: 20px;
+    background-color: #83bde9;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 22px;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#question-choices-area {
+    max-width: 94%;
+    min-height: 10%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice-btn {
+    width: 100%;
+    min-height: 60px;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#score-area {
+    width: 80%;
+    margin-top: 20px;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+}
+
+#three-incorrect-answers-crosses {
+    width: 96%;
+    height: 140px;
+    margin-top: 20px;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-evenly;
+}
+
+.cross-box {
+    width: 100%;
+    height: 100%;
+    background-image: url('images/incorrect-removebg.png');
+    background-size: 100% 100%;
+    visibility: hidden;
+}
+
+#game-over {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+#game-over h1 {
+    font-size: 4rem;
+}
+
+#game-over p {
+    font-size: 1.6rem;
+    line-height: 40px;
+    padding: 10px;
+    text-align: center;
+    color: #333;
+}
+
+#user_score {
+    color: red;
+    font-family: bold;
+}
