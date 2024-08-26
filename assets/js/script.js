@@ -203,10 +203,10 @@ $(document).ready(function() {
 
     const page_switch = () => {
         switch (global.pathname) {
-            case '/':
+            case '/quizzy-msp2/':
                 play_sound()
             break;
-            case '/game.html':
+            case '/quizzy-msp2/game.html':
                 start_game()
                 displayHighestScore()
             break;
