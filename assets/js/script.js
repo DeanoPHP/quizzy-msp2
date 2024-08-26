@@ -56,6 +56,88 @@ $(document).ready(function() {
                 $(this).text(allAnswers[index])
             }
         })
+
+        check_answer(correctAnswer)
+    }
+
+    const check_answer = (correctAnswer) => {
+        // .off('click') removes any existing click events
+        // .on('click') attaches a new event to the btn
+        // .prop('disabled': true) means the button is disabled
+        $('.choice-btn').off('click').on('click', function() {
+
+            $('.choice-btn').off('click').prop('disabled', true);
+    
+            if ($(this).text() === correctAnswer) {
+                $(this).css({
+                    background: 'green',
+                    color: '#fafafa'
+                });
+    
+                correctSound.play();
+
+                global.score++
+            } else {
+                $(this).css({
+                    background: 'red',
+                    color: '#fafafa'
+                });
+
+                // Highlight the correct answer
+                setTimeout(() => {
+                    $('.choice-btn').each(function(index, ans) {
+                        if ($(ans).text() === correctAnswer) {
+                            $(ans).css({
+                                background: 'green',
+                                color: '#fafafa'
+                            });
+                        }
+                    });
+                }, 1000);
+                
+                incorrectSound.play();
+
+                show_incorrect_answer_crosses()                
+            }
+    
+            // Wait for 3 seconds and then start a new game round
+            setTimeout(() => {
+                start_game();
+            }, 3000); 
+        });
+    }
+
+    const show_incorrect_answer_crosses = () => {
+        const crossbox = $('.cross-box');
+        
+        if (global.incorrect < crossbox.length) {
+            $(crossbox[global.incorrect]).css({
+                visibility: 'visible'
+            });
+            // Increment incorrect count
+            global.incorrect++;
+        } 
+    
+        if (global.incorrect > 2) {
+            console.log('Game Over');
+    
+            // Optionally, reset any visual indicators here
+            $('.choice-btn').css({
+                background: '#fafafa',
+                color: '#333'
+            });
+    
+            setTimeout(() => {
+                $('.cross-box').css({
+                    visibility: 'hidden'
+                })
+            }, 2000)
+
+            setTimeout(() => {
+                game_over()
+            }, 3000)
+            
+        } 
     }
 
     const page_switch = () => {
