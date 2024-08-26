@@ -1,6 +1,19 @@
 # Quizzy
+![Responsive](assets/images/responsive.png)
+[Click here to view the live website](https://deanophp.github.io/quizzy-msp2/)
 
 # Overview
+Welcome to our engaging trivia game, a fun and interactive way to test your knowledge! Built using HTML, JavaScript, and jQuery, this game connects seamlessly to the Trivia API to deliver a diverse range of questions across various categories. Whether you're a trivia buff or just looking for a quick challenge, this game offers something for everyone.
+
+# Key Features
++ **Dynamic Question Bank:** Leveraging the Trivia API, the game provides a wide array of questions, ensuring each round is unique and challenging.
++ **High Score Tracking:** Your best performance is always within reach. The game saves your highest score in local storage, so you can track your progress over time and aim to beat your personal best.
++ **Three-Strikes Gameplay:** You have three attempts to answer correctly. After three incorrect answers, the game is over, making each question count!
++ **User-Friendly Interface:** With a clean and intuitive design, enhanced with animations, the game is visually appealing and easy to navigate, ensuring a smooth user experience.
+
+# Future Features
++ Ability to change between difficulty of questions.
++ Scores will be saved in a database so we can have a highest score table displayed to the user.
 
 # User Experience (UX)
 ## User Stories
@@ -15,10 +28,6 @@
 1. **As a returning user**
 
 # Implementation of User Stories
-
-# Features
-
-# Future Features
 
 # Skeleton
 
