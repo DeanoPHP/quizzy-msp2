@@ -12,8 +12,10 @@ Welcome to our engaging trivia game, a fun and interactive way to test your know
 + **User-Friendly Interface:** With a clean and intuitive design, enhanced with animations, the game is visually appealing and easy to navigate, ensuring a smooth user experience.
 
 # Future Features
-+ Ability to change between difficulty of questions.
-+ Scores will be saved in a database so we can have a highest score table displayed to the user.
++ Choose between easy, medium, and hard questions
++ Leaderboard Integration
++ Timed Challenges
++ Power-ups and lifelines
 
 # User Experience (UX)
 ## User Stories
