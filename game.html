@@ -17,7 +17,29 @@
     </nav>
 
     <main>
-        
+        <h1>Question</h1>
+        <div id="question-area"></div>
+        <div id="question-choices-area">
+            <h1>Choose one answer</h1>
+            <button class="choice-btn" data-choice="A"></button>
+            <button class="choice-btn" data-choice="B"></button>
+            <button class="choice-btn" data-choice="C"></button>
+            <button class="choice-btn" data-choice="D"></button>
+            
+            <audio id="correctSound" src="./assets/audio/correct.mp3" preload="auto"></audio>
+            <audio id="incorrectSound" src="./assets/audio/incorrectSound.mp3" preload="auto"></audio>
+        </div>
+        <div id="score-area">
+            <p>Score: <span id="score"></span></p>
+        </div>
+        <div id="three-incorrect-answers-crosses">
+            <div class="cross-box"></div>
+            <div class="cross-box"></div>
+            <div class="cross-box"></div>
+        </div>
+        <div id="game-over"> 
+            <audio id="end-game" src="audio/game-over.mp3" preload="auto"></audio>  
+        </div>
     </main>
 
     <script type="module" src="script.js"></script>
