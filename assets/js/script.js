@@ -1,6 +1,6 @@
 $(document).ready(function() {
     const global = {
-        url: window.href === 'localhost:8000' ? '/' : 'https://deanophp.github.io/quizzy-msp2/',
+        url: window.href === '/' ? 'localhost:8000' : 'https://deanophp.github.io/quizzy-msp2/',
         pathname: window.location.pathname,
         score: 0,
         incorrect: 0,
