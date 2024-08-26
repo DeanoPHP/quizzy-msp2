@@ -153,6 +153,11 @@ $(document).ready(function() {
         return result
     }
 
+    const displayHighestScore = () => {
+        const highestScore = getFromLocalStorage()
+        $('#highest-score-so-far').append("Highest score " + "<span id='highestScore'>" + highestScore + "</span>")
+    }
+
     const game_over = () => {
         // Get the div that is going to display the message
         $('#game-over').css({
@@ -203,6 +208,7 @@ $(document).ready(function() {
             break;
             case '/game.html':
                 start_game()
+                displayHighestScore()
             break;
             default:
                 console.log('Something has gone wrong')
