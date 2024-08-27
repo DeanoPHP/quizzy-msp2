@@ -34,6 +34,15 @@ Welcome to our engaging trivia game, a fun and interactive way to test your know
 # Skeleton
 
 # Technologies and tools used
++ **HTML5:** For the basic structure.
++ **CSS3:** For styling the website.
++ **JavaScript:** For dynamic content and interactivity
++ **jQuery:** For effects and dynamic content.
++ **The Trivia Quiz API:** For fetching data.
++ **Balsamiq:** For creating wireframes.
++ **Visual Studio:** As a code editor.
++ **Github** For version control and collaboration.
++ **Gitpod** For cloud based development environment.
 
 # Design Overview
 
@@ -116,3 +125,7 @@ git clone https://github.com/DeanoPHP/MSP-1.git
    - Click "Save".
 
 Your website should now be live on GitHub Pages. You can access it via the URL provided in the GitHub Pages section of your repository settings.
+
+# Credits and Acknowledgments
+I would like to express my heartfelt gratitude to my mentor for his invaluable guidance and advice throughout this project.
+Additionally, I extend my sincere thanks all my tutors for their exceptional teaching and encouragement. Your dedication and expertise have greatly contributed to my learning journey, Thank you.
