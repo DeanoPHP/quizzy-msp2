@@ -10,17 +10,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizzy</title>
     <!-- CSS Animate -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> -->
 
     <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- jQuery -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- Include jQuery UI CSS for styling (optional) -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 </head>
 <body>
     <div class="container">
         <div class="content">
             <div id="game-image"></div>
-            <p class="animate__animated animate__zoomInDown">Welcome to QuizQuest</p>
+            <p id="title">Welcome to QuizQuest</p>
             
             <button class="btn" id="sound-btn">Quick Start</button>
             <audio id="clickSound" src="./assets/audio/family-splash.mp3" preload="auto"></audio>

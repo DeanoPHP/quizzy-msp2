@@ -6,6 +6,11 @@ $(document).ready(function() {
         incorrect: 0,
     }
 
+    const effect = () => {
+        $('#title').effect('shake', { direction: 'left', times: 8, distance: 20 }, 7000)
+    }
+    
+
     const play_sound = () => {
         $('#sound-btn').on('click', function () {
             clickSound.play()
@@ -155,7 +160,8 @@ $(document).ready(function() {
 
     const displayHighestScore = () => {
         const highestScore = getFromLocalStorage()
-        $('#highest-score-so-far').append("Highest score " + "<span id='highestScore'>" + highestScore + "</span>")
+
+        $('#highest-score-so-far').append("Highest score " + "<span id='highestScore'>" + (highestScore == null ? 0 : highestScore) + "</span>")
     }
 
     const game_over = () => {
@@ -203,9 +209,12 @@ $(document).ready(function() {
 
     const page_switch = () => {
         switch (global.pathname) {
+            case '/':
             case '/quizzy-msp2/':
+                effect()
                 play_sound()
             break;
+            case '/game.html':
             case '/quizzy-msp2/game.html':
                 start_game()
                 displayHighestScore()
