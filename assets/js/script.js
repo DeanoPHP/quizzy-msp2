@@ -6,12 +6,17 @@ $(document).ready(function() {
         incorrect: 0,
     }
 
+    /**
+     * Comment out here
+     */
     const effect = () => {
         $('#title').effect('shake', { direction: 'left', times: 8, distance: 20 }, 7000)
     }
-    
 
-    const play_sound = () => {
+    /**
+     * give comment
+     */
+    const playSound = () => {
         $('#sound-btn').on('click', function () {
             clickSound.play()
             
@@ -21,7 +26,11 @@ $(document).ready(function() {
         })
     }
 
-    const fetch_data = async () => {
+    /**
+     * 
+     * @returns 
+     */
+    const fetchData = async () => {
         try {
             const response = await fetch('https://the-trivia-api.com/api/questions?limit=1&difficulty=easy')
             const data = await response.json()
@@ -32,7 +41,10 @@ $(document).ready(function() {
         }   
     }
 
-    const start_game = async () => {
+    /**
+     * Give comments
+     */
+    const startGame = async () => {
         $('#score').text(global.score);
 
         // Reset the buttons to their default state
@@ -44,7 +56,7 @@ $(document).ready(function() {
             }).prop('disabled', false); // Re-enable buttons
         });
 
-        const questions = await fetch_data()
+        const questions = await fetchData()
         console.log(questions)
         $('#question-area').text(questions[0].question)
 
@@ -62,10 +74,14 @@ $(document).ready(function() {
             }
         })
 
-        check_answer(correctAnswer)
+        checkAnswers(correctAnswer)
     }
 
-    const check_answer = (correctAnswer) => {
+    /**
+     * 
+     * @param {*} correctAnswer 
+     */
+    const checkAnswers = (correctAnswer) => {
         // .off('click') removes any existing click events
         // .on('click') attaches a new event to the btn
         // .prop('disabled': true) means the button is disabled
@@ -102,17 +118,20 @@ $(document).ready(function() {
                 
                 incorrectSound.play();
 
-                show_incorrect_answer_crosses()                
+                showIncorrectAnswers()                
             }
     
             // Wait for 3 seconds and then start a new game round
             setTimeout(() => {
-                start_game();
+                startGame();
             }, 3000); 
         });
     }
 
-    const show_incorrect_answer_crosses = () => {
+    /**
+     * Give comments
+     */
+    const showIncorrectAnswers = () => {
         const crossbox = $('.cross-box');
         
         if (global.incorrect < crossbox.length) {
@@ -139,32 +158,46 @@ $(document).ready(function() {
             }, 2000)
 
             setTimeout(() => {
-                game_over()
+                gameOver()
             }, 3000)
             
         } 
     }
 
-    const setting_to_storage = (score) => {
-        let get_from_storage = getFromLocalStorage()
+    /**
+     * 
+     * @param {number} score 
+     */
+    const settingToLocalStorage = (score) => {
+        let getFromStorage = getFromLocalStorage()
 
-        if (score > get_from_storage) {
+        if (score > getFromStorage) {
             localStorage.setItem('score', score)
         }
     }
 
+    /**
+     * 
+     * @returns 
+     */
     const getFromLocalStorage = () => {
         const result = JSON.parse(localStorage.getItem('score'))
         return result
     }
 
+    /**
+     * Give comment
+     */
     const displayHighestScore = () => {
         const highestScore = getFromLocalStorage()
 
         $('#highest-score-so-far').append("Highest score " + "<span id='highestScore'>" + (highestScore == null ? 0 : highestScore) + "</span>")
     }
 
-    const game_over = () => {
+    /**
+     *  Comment here
+     */
+    const gameOver = () => {
         // Get the div that is going to display the message
         $('#game-over').css({
             visibility: 'visible'
@@ -177,7 +210,7 @@ $(document).ready(function() {
 
         // setting the score in local storage
         const highest_score = global.score
-        setting_to_storage(highest_score)
+        settingToLocalStorage(highest_score)
 
         // display the user highest score sor far
         const highest_recorded_score = getFromLocalStorage()
@@ -207,16 +240,19 @@ $(document).ready(function() {
         }, 4000)
     }
 
+    /**
+     * Comments here
+     */
     const page_switch = () => {
         switch (global.pathname) {
             case '/':
             case '/quizzy-msp2/':
                 effect()
-                play_sound()
+                playSound()
             break;
             case '/game.html':
             case '/quizzy-msp2/game.html':
-                start_game()
+                startGame()
                 displayHighestScore()
             break;
             default:
