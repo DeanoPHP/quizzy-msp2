@@ -69,13 +69,22 @@ nav {
     height: 60px;
     padding: 0 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 #highest-score-so-far {
     color: #fafafa;
     font-size: 1.2rem;
+}
+
+#resetScore {
+    width: 100px;
+    height: 40px;
+    border-radius: 10%;
+    background-color: green;
+    color: #fafafa;
+    margin-left: 12px;
 }
 
 #highestScore {

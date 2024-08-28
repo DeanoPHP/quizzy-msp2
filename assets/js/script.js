@@ -185,6 +185,16 @@ $(document).ready(function() {
         return result
     }
 
+    const resetScore = () => {
+        $('#resetScore').on('click', function() {
+            // put a check alert here to see whether user wants to reset and if so let them know the game will also restart
+            if (confirm('Are you sure you want to reset your highest score? ')) { 
+                localStorage.removeItem('score')
+                $('#highestScore').text('0')
+            }
+        })
+    }
+
     /**
      * Give comment
      */
@@ -254,6 +264,7 @@ $(document).ready(function() {
             case '/quizzy-msp2/game.html':
                 startGame()
                 displayHighestScore()
+                resetScore()
             break;
             default:
                 console.log('Something has gone wrong')
