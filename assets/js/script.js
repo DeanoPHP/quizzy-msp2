@@ -143,14 +143,6 @@ $(document).ready(function() {
         } 
     
         if (global.incorrect > 2) {
-            console.log('Game Over');
-    
-            // Optionally, reset any visual indicators here
-            $('.choice-btn').css({
-                background: '#fafafa',
-                color: '#333'
-            });
-    
             setTimeout(() => {
                 $('.cross-box').css({
                     visibility: 'hidden'
@@ -159,8 +151,7 @@ $(document).ready(function() {
 
             setTimeout(() => {
                 gameOver()
-            }, 3000)
-            
+            }, 3000)          
         } 
     }
 
