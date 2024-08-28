@@ -118,7 +118,12 @@ $(document).ready(function() {
                 
                 incorrectSound.play();
 
-                showIncorrectAnswers()                
+                showIncorrectAnswers()   
+                
+                // When the user gets the question wrong I want to make sure the user sees that they have lost a life so I have used smooth animation to direct them to the lost life area.
+                $('html, body').animate({
+                    scrollTop: $('#three-incorrect-answers-crosses').offset().top
+                }, 1000);                  
             }
     
             // Wait for 3 seconds and then start a new game round
