@@ -12,7 +12,7 @@ Welcome to our engaging trivia game, a fun and interactive way to test your know
 + **User-Friendly Interface:** With a clean and intuitive design, enhanced with animations, the game is visually appealing and easy to navigate, ensuring a smooth user experience.
 
 # Future Features
-+ Choose between easy, medium, and hard questions
++ Give the user the ability to choose between easy, medium, and hard questions
 + Leaderboard Integration
 + Timed Challenges
 + Power-ups and lifelines
@@ -21,15 +21,161 @@ Welcome to our engaging trivia game, a fun and interactive way to test your know
 ## User Stories
 
 ### As a visitor
-1. **As a visitor**
-
-### As a site Owner
-1. **As site owner**
+1. **As a visitor**, I want to start the game quickly, so I can begin answering trivia questions immediately.
+2. **As a visitor**, I want to see a question with multiple-choice answers, so I can select what I believe is the correct answer.
+3. **As a visitor**, I want to know how many lives I have left, so I can gauge how close I am to losing the game.
+4. **As a visitor**, I want to receive immediate feedback when I select an answer, so I know if I was right or wrong.
+5. **As a visitor**, I want the game to be over when I lose all my lives, so I can see my final score and possibly play again.
+6. **As a visitor**, I want to see my current score during the game, so I can track my progress as I answer questions.
+7. **As a visitor**, I want the game to automatically save my top score, so I don't lose my progress when I exit the game.
 
 ### As a returning user
-1. **As a returning user**
+1. **As a returning user**, I want to see my top score displayed in the navigation section, so I can compare it with my current game performance.
+2. **As a returning user**, I want to continue improving my score, so I can beat my previous high score stored in local storage.
+3. **As a returning user**, I want the game to remember my previous top score, so I don't have to start over every time I play.
+4. **As a returning user**, I want the option to reset my top score, so I can start fresh if I want to challenge myself anew.
+
+### As a site Owner
+1. **As a site owner**, I want the game to be simple and engaging, so users will enjoy playing and come back regularly.
+2. **As a site owner**, I want the game to store users' top scores in local storage, so they can track their progress without requiring an account.
+3. **As a site owner**, I want the game to load quickly and be responsive, so users have a smooth experience across all devices.
+4. **As a site owner**, I want the game to utilize the Trivia API, so the questions are varied and dynamically generated.
+5. **As a site owner**, I want the game to provide clear feedback to users, so they are encouraged to keep playing even if they get answers wrong.
+6. **As a site owner**, I want to ensure that the game works correctly even if a user closes and reopens the browser, so their high score is preserved.
 
 # Implementation of User Stories
+### **Quick Start Implementation**
+The "Quick Start" feature allows users to immediately begin playing the trivia game with a single click. Here's how it's implemented:
+![Quick-start](./assets/images/quick-start.png)
+
++ The quick start button included in the game interface. When clicked, it triggers the start of the game.
+
+
+### **Multiple-Choice Questions Implementation**
+
+The multiple-choice question feature allows users to select the correct answer from several options. Here's how it's implemented:
+
+1. **Question Display:** When the game starts, a trivia question is displayed along with several possible answers.
+2. **Answer Options:** The correct answer is mixed with incorrect answers, and all options are presented as clickable buttons.
+3. **Shuffling Answers:** The answer options are shuffled to ensure the correct answer appears in a different position each time.
+4. **Answer Selection:** When a user clicks on an answer, the game checks if the selected answer is correct.
+5. **Feedback and Scoring:** Based on the user's selection, the game provides immediate feedback, updates the score, and adjusts the remaining lives.
+![multiple-choice-answers](./assets/images/multiple-choice.png)
+
+### **Lives Tracking Implementation**
+The incorrect answer indicator feature visually displays the number of wrong answers by revealing images at the bottom of the game interface. Here's how it's implemented:
+
+1. **Hidden Images:** Three <div> elements with the class .cross-box are placed at the bottom of the game interface. These divs are initially set to `visibility: hidden` in the CSS.
+      ```
+      .cross-box {
+          width: 100%;
+          height: 100%;
+          background-image: url('../images/incorrect-removebg.png');
+          background-size: 100% 100%;
+          visibility: hidden;
+      }
+      ```
+2. **Tracking Wrong Answers**
+Each time the user selects an incorrect answer, a counter increases, and the corresponding .cross-box becomes visible.
+
+3. **Revealing Images**
+As the counter increases with each wrong answer, the visibility of the respective .cross-box changes from hidden to visible, displaying the image.
+    ```
+    const showIncorrectAnswers = () => {
+        const crossbox = $('.cross-box');
+        
+        if (global.incorrect < crossbox.length) {
+            $(crossbox[global.incorrect]).css({
+                visibility: 'visible'
+            });
+            // Increment incorrect count
+            global.incorrect++;
+        } 
+    
+        if (global.incorrect > 2) {
+            console.log('Game Over');
+    
+            // Optionally, reset any visual indicators here
+            $('.choice-btn').css({
+                background: '#fafafa',
+                color: '#333'
+            });
+    
+            setTimeout(() => {
+                $('.cross-box').css({
+                    visibility: 'hidden'
+                })
+            }, 2000)
+
+            setTimeout(() => {
+                gameOver()
+            }, 3000)
+            
+        } 
+    }  
+    ```
+4. **Game Feedback:** This visual feedback helps users immediately understand how many mistakes they've made and how close they are to losing the game.
+![incorrent-answer](./assets/images/incorrect-crosses.png)
+
+### **Immediate Feedback Implementation**
+1. **Answer Function:** When a user selects an answer, the game immediately checks whether the selected answer is correct or incorrect.
+    ```
+    const checkAnswers = (correctAnswer) => {
+            // .off('click') removes any existing click events
+            // .on('click') attaches a new event to the btn
+            // .prop('disabled': true) means the button is disabled
+            $('.choice-btn').off('click').on('click', function() {
+
+                $('.choice-btn').off('click').prop('disabled', true);
+        
+                if ($(this).text() === correctAnswer) {
+                    $(this).css({
+                        background: 'green',
+                        color: '#fafafa'
+                    });
+        
+                    correctSound.play();
+
+                    global.score++
+                } else {
+                    $(this).css({
+                        background: 'red',
+                        color: '#fafafa'
+                    });
+
+                    // Highlight the correct answer
+                    setTimeout(() => {
+                        $('.choice-btn').each(function(index, ans) {
+                            if ($(ans).text() === correctAnswer) {
+                                $(ans).css({
+                                    background: 'green',
+                                    color: '#fafafa'
+                                });
+                            }
+                        });
+                    }, 1000);
+                    
+                    incorrectSound.play();
+
+                    showIncorrectAnswers()                
+                }
+        
+                // Wait for 3 seconds and then start a new game round
+                setTimeout(() => {
+                    startGame();
+                }, 3000); 
+            });
+        }
+    ```
+2. **Visual Cues:** The feedback is enhanced with visual cues such as changing the text color (e.g., green for correct, red for incorrect) or showing an animation.
+
+4. **Next Steps:** After displaying the feedback, the game automatically proceeds to the next question or updates the game state (e.g., reducing lives for an incorrect answer).
+
+### Show current score while playing
+
+### Automatic save score in local storage
+
+### Ability to reset top score
 
 # Skeleton
 
