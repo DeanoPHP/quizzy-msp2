@@ -238,7 +238,7 @@ As the counter increases with each wrong answer, the visibility of the respectiv
 
 3. Run the following command 
 ```sh
-git clone https://github.com/DeanoPHP/MSP-1.git
+git clone https://github.com/DeanoPHP/quizzy-msp2
 ```
 
 4. After cloning, navigate into the directory
@@ -257,7 +257,7 @@ git clone https://github.com/DeanoPHP/MSP-1.git
 
 4. Clone your forked repository to your local machine:
 ```sh
-git clone https://github.com/DeanoPHP/MSP-1.git
+git clone https://github.com/DeanoPHP/quizzy-msp2
 ```
 
 5. Navigate to the cloned directory
