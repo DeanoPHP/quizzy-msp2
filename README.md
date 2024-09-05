@@ -195,7 +195,14 @@ As the counter increases with each wrong answer, the visibility of the respectiv
 # Testing
 ## Functional Testing
 
-## Testing with jest
+## HTML Test 
+![w3c-html-test](./assets/images/w3c-html-validator.png)
+
+## CSS testing
+![w3c-css-testing](./assets/images/w3c-css.png)
+
+## Testing with JSLint
+![incorrent-answer](./assets/images/JSLint.png)
 
 # Deployment
 1. **Design the Website on GitPod**:

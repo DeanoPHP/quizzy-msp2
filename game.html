@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizzy</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
 
-    <!-- jQuery -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-</head>
-<body>
-    <nav>
-        <div id="logo">Logo</div>
-        <div id="highest-score-so-far"></div>
-        <button type="submit" id="resetScore">Reset score</button>
-    </nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quizzy</title>
+        <link rel="stylesheet" href="./assets/css/style.css">
 
-    <main>
-        <h1>Question</h1>
-        <div id="question-area"></div>
-        <div id="question-choices-area">
-            <h1>Choose one answer</h1>
-            <button class="choice-btn" data-choice="A"></button>
-            <button class="choice-btn" data-choice="B"></button>
-            <button class="choice-btn" data-choice="C"></button>
-            <button class="choice-btn" data-choice="D"></button>
-            
-            <audio id="correctSound" src="./assets/audio/correct.mp3" preload="auto"></audio>
-            <audio id="incorrectSound" src="./assets/audio/incorrectSound.mp3" preload="auto"></audio>
-        </div>
-        <div id="score-area">
-            <p>Score: <span id="score"></span></p>
-        </div>
-        <div id="three-incorrect-answers-crosses">
-            <div class="cross-box"></div>
-            <div class="cross-box"></div>
-            <div class="cross-box"></div>
-        </div>
-        <div id="game-over"> 
-            <audio id="end-game" src="./assets/audio/game-over.mp3" preload="auto"></audio>  
-        </div>
-    </main>
+        <!-- jQuery -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    </head>
 
-    <script type="module" src="./assets/js/script.js"></script>
-</body>
+    <body>
+        <nav>
+            <div id="logo">Logo</div>
+            <div id="highest-score-so-far"></div>
+            <button type="submit" id="resetScore">Reset score</button>
+        </nav>
+
+        <main>
+            <h1>Question</h1>
+            <div id="question-area"></div>
+            <div id="question-choices-area">
+                <h1>Choose one answer</h1>
+                <button class="choice-btn" data-choice="A"></button>
+                <button class="choice-btn" data-choice="B"></button>
+                <button class="choice-btn" data-choice="C"></button>
+                <button class="choice-btn" data-choice="D"></button>
+
+                <audio id="correctSound" src="./assets/audio/correct.mp3" preload="auto"></audio>
+                <audio id="incorrectSound" src="./assets/audio/incorrectSound.mp3" preload="auto"></audio>
+            </div>
+            <div id="score-area">
+                <p>Score: <span id="score"></span></p>
+            </div>
+            <div id="three-incorrect-answers-crosses">
+                <div class="cross-box"></div>
+                <div class="cross-box"></div>
+                <div class="cross-box"></div>
+            </div>
+            <div id="game-over">
+                <audio id="end-game" src="./assets/audio/game-over.mp3" preload="auto"></audio>
+            </div>
+        </main>
+
+        <script type="module" src="./assets/js/script.js"></script>
+    </body>
+
 </html>
