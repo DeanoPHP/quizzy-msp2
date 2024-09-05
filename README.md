@@ -171,11 +171,13 @@ As the counter increases with each wrong answer, the visibility of the respectiv
 
 4. **Next Steps:** After displaying the feedback, the game automatically proceeds to the next question or updates the game state (e.g., reducing lives for an incorrect answer).
 
-### Show current score while playing
+###  User Story Implementation: Show Current Score While Playing
+To display the current score during the game, I have implemented a global **score** variable. Each time the user answers a question correctly, the **global.score** variable is incremented. This updated score is then dynamically displayed in the game by targeting the relevant HTML element using its ID, and updating its content to reflect the current score. This allows the user to see their score in real-time as they progress through the quiz.
 
-### Automatic save score in local storage
+### User Story Implementation: Save and Manage User Score
+To enhance the user experience, I have implemented functionality to save the user's score in localStorage. After each game, the current score is compared to the saved top score, and if the new score is higher, it is stored as the new top score in localStorage. This ensures that the user’s highest score is preserved and displayed across sessions, allowing them to track their progress.
 
-### Ability to reset top score
+Additionally, I’ve provided users with the ability to delete their stored top score. This is achieved through a submit button, which, when clicked, prompts the user to confirm the deletion. If confirmed, the top score is removed from localStorage, giving users control over their saved data.
 
 # Skeleton
 
@@ -191,6 +193,23 @@ As the counter increases with each wrong answer, the visibility of the respectiv
 + **Gitpod** For cloud based development environment.
 
 # Design Overview
+The website consists of two primary pages: index.html and game.html.
++ The index page features a simple, black background with a vibrant, eye-catching image that reads "Quiz Time" to reflect the game's title, Quizzy. The image incorporates a color palette of pink, blue, yellow, and white, which is carried throughout the site for a cohesive design.
+
++ Color scheme:
+  - H1 tags: rgb(219, 102, 182)
+  - P tags: rgb(11, 168, 230)
+  - Font color: #fafafa
+  - Body background: Black
+
+On the game page, users answer quiz questions by selecting from four buttons. Interaction feedback includes:
+
++ Correct answer: The selected button turns green, and a confirmation sound plays.
++ Incorrect answer: The selected button turns red, and after a brief pause, the correct answer is highlighted in green. Additionally, an image of a cross appears at the bottom of the screen to indicate the wrong answer.
+
+The user has three chances before the game ends, with a cross image appearing each time an incorrect answer is given.
+
+The website is fully responsive across all devices and browsers, utilizing Flexbox for layout positioning. The project is built using HTML, CSS, jQuery, and JavaScript.
 
 # Testing
 ## Functional Testing
