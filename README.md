@@ -213,6 +213,14 @@ The website is fully responsive across all devices and browsers, utilizing Flexb
 
 # Testing
 ## Functional Testing
+| Action | Expected Behaviour | Pass/Fail |
+|--------|--------------------|-----------|
+| Initial page load | the page should load on the index.html page | Pass | 
+| Click quick start button | When the user clicks the **Quick Start** button, an audio sound should play before the user is redirected to the game.html page. | Pass |
+| Upon Redirect to Game Page | After being redirected to the game.html page, the game interface should load immediately, displaying the first quiz question along with four answer options. The user’s current score and remaining attempts should also be visible at this point. | Pass |
+| After Correct Answer | When the user selects the correct answer, the selected button should turn green, and a confirmation sound should play. The user's score is then incremented, and the updated score is displayed on the screen. The next question should load immediately after the feedback. | Pass |
+| After Incorrect Answer | When the user selects an incorrect answer, the selected button should turn red. After a brief delay, the correct answer will be highlighted by turning its button green. An image of a cross will appear at the bottom of the screen to indicate the incorrect response.  The next question will load once the feedback is displayed. | Pass |
+| Game Finished | Once the user has used all their lives, the game will end. A pop-up screen will briefly appear, displaying the user's final score along with a message. After a few seconds, the user will be automatically redirected back to the index page, where they can choose to start the game again. | Pass |
 
 ## HTML Test 
 ![w3c-html-test](./assets/images/w3c-html-validator.png)
