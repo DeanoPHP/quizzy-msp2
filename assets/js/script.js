@@ -121,7 +121,7 @@ $(document).ready(function () {
 
                 // Highlight the correct answer
                 setTimeout(function () {
-                    $(".choice-btn").each(function (ans) {
+                    $(".choice-btn").each(function (index, ans) {
                         if ($(ans).text() === correctAnswer) {
                             $(ans).css({
                                 background: "green",
