@@ -179,7 +179,11 @@ To enhance the user experience, I have implemented functionality to save the use
 
 Additionally, I’ve provided users with the ability to delete their stored top score. This is achieved through a submit button, which, when clicked, prompts the user to confirm the deletion. If confirmed, the top score is removed from localStorage, giving users control over their saved data.
 
-# Skeleton
+# Skeleton 
+| Page | Desktop | Tablet | Mobile |
+|------|---------|--------|--------|
+| index.html |![index-desktop](./assets/images/wireframes/index-desktop.png) | ![index-tablet](./assets/images/wireframes/index-tablet.png) | ![index-mobile](./assets/images/wireframes/index-mobile.png) |
+| game.html | ![game-desktop](./assets/images/wireframes/game-desktop.png) | ![game-desktop](./assets/images/wireframes/game-desktop.png) | ![game-mobile](./assets/images/wireframes/game-mobile.png)
 
 # Technologies and tools used
 + **HTML5:** For the basic structure.
@@ -190,7 +194,7 @@ Additionally, I’ve provided users with the ability to delete their stored top 
 + **Balsamiq:** For creating wireframes.
 + **Visual Studio:** As a code editor.
 + **Github** For version control and collaboration.
-+ **Gitpod** For cloud based development environment.
++ **Gitpod** For cloud based development environment.  
 
 # Design Overview
 The website consists of two primary pages: index.html and game.html.
