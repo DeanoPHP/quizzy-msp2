@@ -1,3 +1,3 @@
 setTimeout(function() {
-    window.location.href = '/';
+    window.location.href = 'https://deanophp.github.io/quizzy-msp2/';
 }, 5000); 
