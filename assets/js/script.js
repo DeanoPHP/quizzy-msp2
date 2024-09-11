@@ -3,11 +3,33 @@ $(document).ready(function () {
         incorrect: 0,
         pathname: window.location.pathname,
         score: 0,
+        soundEnabled: true,
         url: (
             window.location.pathname === "/"
                 ? "http://localhost:8000"
                 : "https://deanophp.github.io/quizzy-msp2/"
         )
+    };
+
+    /**
+     * 
+     */
+    const settings = function () {
+        $('#settings').css('visibility', 'visible');
+
+        // check sound
+    }
+
+    /**
+     * @param {string} audioId 
+     */
+    const playSound = function (audioId) {
+        if (global.soundEnabled) {
+            let audio = document.getElementById(audioId)
+            audio.play().catch(function(error) {
+                console.log('Audio play was prevented:', error);
+            });
+        }
     };
 
     /**
@@ -23,21 +45,6 @@ $(document).ready(function () {
             },
             7000
         );
-    };
-
-    /**
-     * give comment
-     */
-    const playSound = function () {
-        const clickSound = document.getElementById("clickSound");
-
-        $("#sound-btn").on("click", function () {
-            clickSound.play();
-
-            setTimeout(function () {
-                window.location.href = "game.html";
-            }, 7000);
-        });
     };
 
     /**
@@ -108,9 +115,7 @@ $(document).ready(function () {
                     color: "#fafafa"
                 });
 
-                const correctSound = document.getElementById("correctSound");
-
-                correctSound.play();
+                playSound("correctSound")
 
                 global.score += 1;
             } else {
@@ -131,9 +136,7 @@ $(document).ready(function () {
                     });
                 }, 1000);
 
-                const incorrectSound = document.getElementById("incorrectSound");
-
-                incorrectSound.play();
+                playSound("incorrectSound")
 
                 showIncorrectAnswers();
 
@@ -233,8 +236,6 @@ $(document).ready(function () {
 
         $("#end-game")[0].play();
 
-        // $("#user_score").text(global.score)
-
         // setting the score in local storage
         const highest_score = global.score;
         settingToLocalStorage(highest_score);
@@ -274,8 +275,11 @@ $(document).ready(function () {
         switch (global.pathname) {
             case "/":
             case "/quizzy-msp2/":
+                $('#cog-icon').on('click', settings);
                 effect();
-                playSound();
+                $('#sound-btn').on('click', function() {
+                     playSound('family-splash');
+                })  
                 break;
             case "/game.html":
             case "/quizzy-msp2/game.html":
