@@ -91,6 +91,10 @@ $(document).ready(function () {
      * Give comments
      */
     const startGame = async function () {
+        $("html, body").animate({
+            scrollTop: $("body").offset().top
+        }, 500)
+
         $("#score").text(global.score);
 
         // Reset the buttons to their default state
@@ -263,15 +267,15 @@ $(document).ready(function () {
             $("#game-over").append("<p>Whoop Whoop you have broke your record</p>");
             // Add some graphics and music video 
         } else if (global.score < 10) {
-            $("#game-over").append(`<p>A Monkey could do better than ${global.score}</p>`);
+            $("#game-over").append(`<p>That is not a great score. I am sure you can get more than ${global.score}</p>`);
         } else if (global.score > 10 && global.score < 20) {
             $("#game-over").append(`<p>${global.score} is not bad. Keep trying I"m sure you can do better</p>`);
         } else {
-            $("#game-over").append(`<p>${global.score} is a great effort</p>`);
+            $("#game-over").append(`<p>${global.score} is a great effort, Keep trying</p>`);
         }
 
         $("#game-over").append(`<p>Your highest score so far is ${highest_recorded_score}</p>`);
-        $("#game-over").append(`<p>By Dean Lark</p>`);
+        $("#game-over").append(`<p style="color: orange;">By Dean Lark</p>`);
 
         // set the score and all setting from above back to start game settings. Maybe put this in a function of its own
         global.score = 0;
