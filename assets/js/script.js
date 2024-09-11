@@ -17,7 +17,7 @@ $(document).ready(function () {
         $("#settings").css("visibility", "visible");
         $("#title").css("visibility", "hidden");
         const highScore = getFromLocalStorage();
-        $('#settingsHighScore').text(highScore);
+        $('#settingsHighScore').text(highScore === null ? '0' : highScore);
 
         const sound = checkSoundEnabled();
         $("#soundOnOff").text(sound === "true" ? "Turn Sound Off" : "Turn Sound On");
