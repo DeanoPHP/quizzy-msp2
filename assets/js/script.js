@@ -17,7 +17,9 @@ $(document).ready(function () {
         $("#settings").css("visibility", "visible");
         $("#title").css("visibility", "hidden");
         const highScore = getFromLocalStorage();
-        $('#settingsHighScore').text(highScore === null ? '0' : highScore);
+        $("#settingsHighScore").text(highScore === null ? '0' : highScore);
+
+        resetScore()
 
         const sound = checkSoundEnabled();
         $("#soundOnOff").text(sound === "true" ? "Turn Sound Off" : "Turn Sound On");
@@ -37,7 +39,7 @@ $(document).ready(function () {
         }); 
 
         $('#backToHome').on('click', function() {
-            window.location.href = '/';
+            window.location.href = global.url;
         })
     }
 
@@ -292,7 +294,6 @@ $(document).ready(function () {
                         window.location.href = "game.html"
                      }, 7000)
                 })  
-                resetScore()
                 break;
             case "/game.html":
             case "/quizzy-msp2/game.html":
