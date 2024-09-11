@@ -52,6 +52,7 @@ body {
     display: flex;
     flex-direction: column;
     visibility: hidden;
+    overflow: scroll;
 }
 
 #settings h1, #settings p {
@@ -77,14 +78,19 @@ body {
     font-weight: bold;
 }
 
+#game-instructions {
+    font-size: 1.4rem;
+    color: #c0c0c0;
+}
+
 #settingsHighScore {
     color: red;
     font-weight: bold;
 }
 
 #settings > button {
-    /* margin: 40px auto; */
-    height: 40px;
+    margin: 40px auto;
+    height: 60px;
     width: 260px;
     background-color: #fffc00;
     font-weight: bold;
