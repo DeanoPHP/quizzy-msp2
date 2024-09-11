@@ -42,7 +42,7 @@ body {
 
 #settings {
     background-color: rgba(0, 0, 0, 0.9);
-    border: 1px solid #fafafa;
+    border: 8px solid #fafafa;
     position: absolute;
     top: 0;
     left: 0;
@@ -253,7 +253,7 @@ main {
 
 #game-over {
     background-color: rgba(0, 0, 0, 0.9);
-    border: 1px solid #fafafa;
+    border: 8px solid #fafafa;
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
@@ -269,6 +269,7 @@ main {
 
 #game-over h1 {
     font-size: 4rem;
+    color: #fafafa;
 }
 
 #game-over p {
@@ -276,7 +277,7 @@ main {
     line-height: 40px;
     padding: 10px;
     text-align: center;
-    color: #333;
+    color: #fafafa;
 }
 
 #user_score {

@@ -239,6 +239,10 @@ $(document).ready(function () {
      * Comment here
      */
     const gameOver = function () {
+        $("html, body").animate({
+            scrollTop: $("body").offset().top
+        }, 1000)
+        
         // Get the div that is going to display the message
         $("#game-over").css({
             visibility: "visible"
