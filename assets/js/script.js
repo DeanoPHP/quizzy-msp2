@@ -15,8 +15,10 @@ $(document).ready(function () {
      */
     const settings = function () {
         $("#settings").css("visibility", "visible");
+        const highScore = getFromLocalStorage();
+        $('#settingsHighScore').text(highScore);
 
-        const sound = checkSoundEnabled()
+        const sound = checkSoundEnabled();
 
         // Toggle sound on or off
         $("#soundOnOff").on("click", function() {
