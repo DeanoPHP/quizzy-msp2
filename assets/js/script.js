@@ -5,7 +5,7 @@ $(document).ready(function () {
         score: 0,
         url: (
             window.location.pathname === "/"
-                ? "http://localhost:8000"
+                ? "http://localhost:8000/"
                 : "https://deanophp.github.io/quizzy-msp2/"
         )
     };
@@ -14,18 +14,18 @@ $(document).ready(function () {
      * 
      */
     const settings = function () {
+        resetScore();
+
         $("#settings").css("visibility", "visible");
         $("#title").css("visibility", "hidden");
         const highScore = getFromLocalStorage();
         $("#settingsHighScore").text(highScore === null ? '0' : highScore);
 
-        resetScore()
-
         const sound = checkSoundEnabled();
         $("#soundOnOff").text(sound === "true" ? "Turn Sound Off" : "Turn Sound On");
 
         // Toggle sound on or off
-        $("#soundOnOff").on("click", function() {
+        $("#soundOnOff").on("click", function () {
             const currentSound = checkSoundEnabled();
             if (currentSound === "true") {
                 localStorage.setItem('soundEnabled', "false")
@@ -36,9 +36,9 @@ $(document).ready(function () {
                 alert('The volume is turned on');
                 $(this).text('Turn Sound Off');  // Update button text to reflect the new state
             }
-        }); 
+        });
 
-        $('#backToHome').on('click', function() {
+        $('#backToHome').on('click', function () {
             window.location.href = global.url;
         })
     }
@@ -46,7 +46,7 @@ $(document).ready(function () {
     /**
      * Check localStorage to see whether sound is enabled
      */
-    const checkSoundEnabled = function() {
+    const checkSoundEnabled = function () {
         let sound = localStorage.getItem("soundEnabled");
 
         if (sound === null) {
@@ -54,7 +54,7 @@ $(document).ready(function () {
         } else {
             return localStorage.getItem("soundEnabled")
         }
-    
+
         return sound;
     }
 
@@ -65,7 +65,7 @@ $(document).ready(function () {
         const sound = checkSoundEnabled()
         if (sound === "true") {
             let audio = document.getElementById(audioId)
-            audio.play().catch(function(error) {
+            audio.play().catch(function (error) {
                 console.log("Audio play was prevented:", error);
             });
         }
@@ -166,13 +166,13 @@ $(document).ready(function () {
 
                 $("html, body").animate({
                     scrollTop: $("#three-incorrect-answers-crosses")
-                    .offset()
-                    .top
+                        .offset()
+                        .top
                 }, 1000);
             }
 
             // Wait for 3 seconds and then start a new game round
-            setTimeout(function() {
+            setTimeout(function () {
                 startGame();
             }, 3000);
         });
@@ -181,7 +181,7 @@ $(document).ready(function () {
     /**
      * Give comments
      */
-    const showIncorrectAnswers = function() {
+    const showIncorrectAnswers = function () {
         const crossbox = $(".cross-box");
 
         if (global.incorrect < crossbox.length) {
@@ -193,13 +193,13 @@ $(document).ready(function () {
         }
 
         if (global.incorrect > 2) {
-            setTimeout(function() {
+            setTimeout(function () {
                 $(".cross-box").css({
                     visibility: "hidden"
                 });
             }, 2000);
 
-            setTimeout(function() {
+            setTimeout(function () {
                 gameOver();
             }, 3000);
         }
@@ -208,7 +208,7 @@ $(document).ready(function () {
     /**
      * @param {number} score
      */
-    const settingToLocalStorage = function(score) {
+    const settingToLocalStorage = function (score) {
         let getFromStorage = getFromLocalStorage();
 
         if (score > getFromStorage) {
@@ -219,26 +219,26 @@ $(document).ready(function () {
     /**
      * @returns
      */
-    const getFromLocalStorage = function() {
+    const getFromLocalStorage = function () {
         const result = JSON.parse(localStorage.getItem("score"));
         return result;
     };
 
-    const resetScore = function() {
+    const resetScore = function () {
         $("#resetScore").on("click", function () {
             if (
                 confirm("Are you sure you want to reset your highest score?")
             ) {
                 localStorage.removeItem("score");
-                $("#highestScore").text("0");
+                $("#settingsHighScore").text("0");
             }
         });
     };
-    
+
     /**
      * Comment here
      */
-    const gameOver = function() {
+    const gameOver = function () {
         // Get the div that is going to display the message
         $("#game-over").css({
             visibility: "visible"
@@ -274,26 +274,33 @@ $(document).ready(function () {
         global.incorrect = 0;
 
         // Redirect the user back to index 
-        setTimeout(function() {
+        setTimeout(function () {
             window.location.href = global.url;
+            // window.location.href = "/";
         }, 4000);
     };
 
     /**
      * Comments here
      */
-    const page_switch = function() {
+    const page_switch = function () {
         switch (global.pathname) {
             case "/":
             case "/quizzy-msp2/":
                 $("#cog-icon").on("click", settings);
-                $("#sound-btn").on("click", function() {
-                     playSound("family-splash");
+                $("#sound-btn").on("click", function () {
+                    playSound("family-splash");
 
-                     setTimeout(function() {
+                    const sound = checkSoundEnabled()
+
+                    if (sound === "true") {
+                        setTimeout(function () {
+                            window.location.href = "game.html"
+                        }, 7000)
+                    } else {
                         window.location.href = "game.html"
-                     }, 7000)
-                })  
+                    }
+                });
                 break;
             case "/game.html":
             case "/quizzy-msp2/game.html":
