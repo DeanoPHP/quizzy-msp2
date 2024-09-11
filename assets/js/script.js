@@ -32,6 +32,10 @@ $(document).ready(function () {
                 $(this).text('Turn Sound Off');  // Update button text to reflect the new state
             }
         }); 
+
+        $('#backToHome').on('click', function() {
+            window.location.href = '/';
+        })
     }
 
     /**
@@ -292,7 +296,6 @@ $(document).ready(function () {
             case "/":
             case "/quizzy-msp2/":
                 $("#cog-icon").on("click", settings);
-                effect();
                 $("#sound-btn").on("click", function() {
                      playSound("family-splash");
 
