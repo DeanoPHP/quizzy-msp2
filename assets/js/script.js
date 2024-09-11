@@ -63,21 +63,6 @@ $(document).ready(function () {
     };
 
     /**
-     * Comment out here
-     */
-    const effect = function () {
-        $("#title").effect(
-            "shake",
-            {
-                direction: "left",
-                distance: 20,
-                times: 8
-            },
-            7000
-        );
-    };
-
-    /**
      * @returns data from the trivia api
      */
     const fetchData = async function () {
