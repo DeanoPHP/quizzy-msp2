@@ -15,14 +15,17 @@ $(document).ready(function () {
      */
     const settings = function () {
         $("#settings").css("visibility", "visible");
+        $("#title").css("visibility", "hidden");
         const highScore = getFromLocalStorage();
         $('#settingsHighScore').text(highScore);
 
         const sound = checkSoundEnabled();
+        $("#soundOnOff").text(sound === "true" ? "Turn Sound Off" : "Turn Sound On");
 
         // Toggle sound on or off
         $("#soundOnOff").on("click", function() {
-            if (sound === "true") {
+            const currentSound = checkSoundEnabled();
+            if (currentSound === "true") {
                 localStorage.setItem('soundEnabled', "false")
                 alert('The volume is turned off');
                 $(this).text('Turn Sound On');  // Update button text to reflect the new state

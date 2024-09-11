@@ -58,7 +58,39 @@ body {
     color: #fafafa;
 }
 
+#settings ul {
+    margin-top: 50px;
+}
 
+#settings ul li {
+    list-style: none;
+    font-size: 1.6rem;
+    line-height: 40px;
+}
+
+#settings ul li button {
+    height: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fafafa;
+    color: #333;
+    font-weight: bold;
+}
+
+#settingsHighScore {
+    color: red;
+    font-weight: bold;
+}
+
+#settings > button {
+    /* margin: 40px auto; */
+    height: 40px;
+    width: 260px;
+    background-color: #fffc00;
+    font-weight: bold;
+    color: #333;
+    border-radius: 10px;
+}
 
 .content {
     height: 100vh;
@@ -104,7 +136,7 @@ body {
     margin-top: 20px;
     border-radius: 10px;
     background-color: #fffc00;
-    color: rgb(219, 102, 182);
+    color: #333;
     font-weight: bold;
     font-size: 20px;
     cursor: pointer;
