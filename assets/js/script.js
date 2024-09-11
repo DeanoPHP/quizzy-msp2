@@ -3,7 +3,6 @@ $(document).ready(function () {
         incorrect: 0,
         pathname: window.location.pathname,
         score: 0,
-        soundEnabled: true,
         url: (
             window.location.pathname === "/"
                 ? "http://localhost:8000"
@@ -15,19 +14,48 @@ $(document).ready(function () {
      * 
      */
     const settings = function () {
-        $('#settings').css('visibility', 'visible');
+        $("#settings").css("visibility", "visible");
 
-        // check sound
+        const sound = checkSoundEnabled()
+
+        // Toggle sound on or off
+        $("#soundOnOff").on("click", function() {
+            if (sound === "true") {
+                localStorage.setItem('soundEnabled', "false")
+                alert('The volume is turned off');
+                $(this).text('Turn Sound On');  // Update button text to reflect the new state
+            } else {
+                localStorage.setItem('soundEnabled', "true");
+                alert('The volume is turned on');
+                $(this).text('Turn Sound Off');  // Update button text to reflect the new state
+            }
+        }); 
+    }
+
+    /**
+     * Check localStorage to see whether sound is enabled
+     */
+    const checkSoundEnabled = function() {
+        let sound = localStorage.getItem("soundEnabled");
+
+        if (sound === null) {
+            sound = localStorage.setItem("soundEnabled", "true")
+        } else {
+            return localStorage.getItem("soundEnabled")
+        }
+    
+        return sound;
     }
 
     /**
      * @param {string} audioId 
      */
     const playSound = function (audioId) {
-        if (global.soundEnabled) {
+        const sound = checkSoundEnabled()
+        if (sound === "true") {
             let audio = document.getElementById(audioId)
             audio.play().catch(function(error) {
-                console.log('Audio play was prevented:', error);
+                console.log("Audio play was prevented:", error);
             });
         }
     };
@@ -234,7 +262,8 @@ $(document).ready(function () {
             visibility: "visible"
         });
 
-        $("#end-game")[0].play();
+        // $("#end-game")[0].play();
+        playSound("end-game")
 
         // setting the score in local storage
         const highest_score = global.score;
@@ -275,15 +304,20 @@ $(document).ready(function () {
         switch (global.pathname) {
             case "/":
             case "/quizzy-msp2/":
-                $('#cog-icon').on('click', settings);
+                $("#cog-icon").on("click", settings);
                 effect();
-                $('#sound-btn').on('click', function() {
-                     playSound('family-splash');
+                $("#sound-btn").on("click", function() {
+                     playSound("family-splash");
+
+                     setTimeout(function() {
+                        window.location.href = "game.html"
+                     }, 7000)
                 })  
                 break;
             case "/game.html":
             case "/quizzy-msp2/game.html":
                 startGame();
+                console.log(global.soundEnabled)
                 displayHighestScore();
                 resetScore();
                 break;
