@@ -234,20 +234,6 @@ $(document).ready(function () {
     };
     
     /**
-     * Give comment
-     */
-    const displayHighestScore = function() {
-        const highestScore = getFromLocalStorage();
-    
-        $("#highest-score-so-far").append(
-            "Highest score " + 
-            "<span id='highestScore'>" + 
-            (highestScore === null ? 0 : highestScore) + 
-            "</span>"
-        );
-    };
-    
-    /**
      * Comment here
      */
     const gameOver = function() {
@@ -306,13 +292,11 @@ $(document).ready(function () {
                         window.location.href = "game.html"
                      }, 7000)
                 })  
+                resetScore()
                 break;
             case "/game.html":
             case "/quizzy-msp2/game.html":
                 startGame();
-                console.log(global.soundEnabled)
-                displayHighestScore();
-                resetScore();
                 break;
             default:
                 console.log("Something has gone wrong");
