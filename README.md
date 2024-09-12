@@ -2,16 +2,37 @@
 ![Responsive](assets/images/responsive.png)
 [Click here to view the live website](https://deanophp.github.io/quizzy-msp2/)
 
-# Overview
+## Overview
 Welcome to our engaging trivia game, a fun and interactive way to test your knowledge! Built using HTML, JavaScript, and jQuery, this game connects seamlessly to the Trivia API to deliver a diverse range of questions across various categories. Whether you're a trivia buff or just looking for a quick challenge, this game offers something for everyone.
 
-# Key Features
+## Purpose
+
+The purpose of Quizzy is to offer users a lighthearted and competitive way to exercise their brains while having fun. It’s a trivia game where users answer questions, receive instant feedback, and track their performance. The application is designed to be interactive, with features such as high score tracking, sound effects, and responsive UI elements. Players can also revisit their performance to aim for a higher score or beat their personal best.
+
+## Value to Users
+
+Quizzy offers the following benefits to its users:
+
+1. **Entertainment**: The game is designed to be fun and engaging, making it an excellent way for users to relax and enjoy themselves.
+2. **Educational Value**: Trivia questions help users learn new facts and expand their general knowledge in various categories, from science to pop culture.
+3. **Personal Challenge**: The high score tracking feature provides a personal challenge for users, motivating them to improve their performance with each round.
+4. **Engaging UI and UX**: The game offers an interactive, easy-to-navigate interface, ensuring a seamless user experience.
+5. **Flexibility**: With sound control options and a responsive design, users can play the game anytime, anywhere, and customize their experience according to their preferences.
+
+## Key Features
++ **Multiple-Choice Questions**: Users answer trivia questions from different categories with four possible options.
++ **High Score Tracking**: Quizzy saves the highest score locally, allowing users to track their performance and aim for a new personal best.
++ **Interactive Feedback**: Immediate feedback is provided for correct or incorrect answers with visual indicators and sound effects.
++ **Sound Control**: Players can toggle sound effects on and off according to their preference.
++ **Game Instructions**: Clear instructions are provided to help new players understand the rules and how the game works.
++ **Game Over and Restart**: Once players run out of chances, a game over screen appears, allowing them to start over or return to the main page.
++ **Mobile-Friendly**: Quizzy is responsive and works smoothly on both desktop and mobile devices.
 + **Dynamic Question Bank:** Leveraging the Trivia API, the game provides a wide array of questions, ensuring each round is unique and challenging.
 + **High Score Tracking:** Your best performance is always within reach. The game saves your highest score in local storage, so you can track your progress over time and aim to beat your personal best.
 + **Three-Strikes Gameplay:** You have three attempts to answer correctly. After three incorrect answers, the game is over, making each question count!
 + **User-Friendly Interface:** With a clean and intuitive design, enhanced with animations, the game is visually appealing and easy to navigate, ensuring a smooth user experience.
 
-# Future Features
+## Future Features
 + Give the user the ability to choose between easy, medium, and hard questions
 + Leaderboard Integration
 + Timed Challenges
@@ -29,13 +50,13 @@ Welcome to our engaging trivia game, a fun and interactive way to test your know
 6. **As a visitor**, I want to see my current score during the game, so I can track my progress as I answer questions.
 7. **As a visitor**, I want the game to automatically save my top score, so I don't lose my progress when I exit the game.
 
-### As a returning user
+## As a returning user
 1. **As a returning user**, I want to see my top score displayed in the navigation section, so I can compare it with my current game performance.
 2. **As a returning user**, I want to continue improving my score, so I can beat my previous high score stored in local storage.
 3. **As a returning user**, I want the game to remember my previous top score, so I don't have to start over every time I play.
 4. **As a returning user**, I want the option to reset my top score, so I can start fresh if I want to challenge myself anew.
 
-### As a site Owner
+## As a site Owner
 1. **As a site owner**, I want the game to be simple and engaging, so users will enjoy playing and come back regularly.
 2. **As a site owner**, I want the game to store users' top scores in local storage, so they can track their progress without requiring an account.
 3. **As a site owner**, I want the game to load quickly and be responsive, so users have a smooth experience across all devices.
@@ -43,7 +64,7 @@ Welcome to our engaging trivia game, a fun and interactive way to test your know
 5. **As a site owner**, I want the game to provide clear feedback to users, so they are encouraged to keep playing even if they get answers wrong.
 6. **As a site owner**, I want to ensure that the game works correctly even if a user closes and reopens the browser, so their high score is preserved.
 
-# Implementation of User Stories
+## Implementation of User Stories
 ### **Quick Start Implementation**
 The "Quick Start" feature allows users to immediately begin playing the trivia game with a single click. Here's how it's implemented:
 ![Quick-start](./assets/images/quick-start.png)
@@ -51,7 +72,7 @@ The "Quick Start" feature allows users to immediately begin playing the trivia g
 + The quick start button included in the game interface. When clicked, it triggers the start of the game.
 
 
-### **Multiple-Choice Questions Implementation**
+## **Multiple-Choice Questions Implementation**
 
 The multiple-choice question feature allows users to select the correct answer from several options. Here's how it's implemented:
 
@@ -62,7 +83,7 @@ The multiple-choice question feature allows users to select the correct answer f
 5. **Feedback and Scoring:** Based on the user's selection, the game provides immediate feedback, updates the score, and adjusts the remaining lives.
 ![multiple-choice-answers](./assets/images/multiple-choice.png)
 
-### **Lives Tracking Implementation**
+## **Lives Tracking Implementation**
 The incorrect answer indicator feature visually displays the number of wrong answers by revealing images at the bottom of the game interface. Here's how it's implemented:
 
 1. **Hidden Images:** Three <div> elements with the class .cross-box are placed at the bottom of the game interface. These divs are initially set to `visibility: hidden` in the CSS.
@@ -117,7 +138,7 @@ As the counter increases with each wrong answer, the visibility of the respectiv
 4. **Game Feedback:** This visual feedback helps users immediately understand how many mistakes they've made and how close they are to losing the game.
 ![incorrent-answer](./assets/images/incorrect-crosses.png)
 
-### **Immediate Feedback Implementation**
+## **Immediate Feedback Implementation**
 1. **Answer Function:** When a user selects an answer, the game immediately checks whether the selected answer is correct or incorrect.
     ```
     const checkAnswers = (correctAnswer) => {
@@ -171,21 +192,21 @@ As the counter increases with each wrong answer, the visibility of the respectiv
 
 4. **Next Steps:** After displaying the feedback, the game automatically proceeds to the next question or updates the game state (e.g., reducing lives for an incorrect answer).
 
-###  User Story Implementation: Show Current Score While Playing
+##  User Story Implementation: Show Current Score While Playing
 To display the current score during the game, I have implemented a global **score** variable. Each time the user answers a question correctly, the **global.score** variable is incremented. This updated score is then dynamically displayed in the game by targeting the relevant HTML element using its ID, and updating its content to reflect the current score. This allows the user to see their score in real-time as they progress through the quiz.
 
-### User Story Implementation: Save and Manage User Score
+## User Story Implementation: Save and Manage User Score
 To enhance the user experience, I have implemented functionality to save the user's score in localStorage. After each game, the current score is compared to the saved top score, and if the new score is higher, it is stored as the new top score in localStorage. This ensures that the user’s highest score is preserved and displayed across sessions, allowing them to track their progress.
 
 Additionally, I’ve provided users with the ability to delete their stored top score. This is achieved through a submit button, which, when clicked, prompts the user to confirm the deletion. If confirmed, the top score is removed from localStorage, giving users control over their saved data.
 
-# Skeleton 
+## Skeleton 
 | Page | Desktop | Tablet | Mobile |
 |------|---------|--------|--------|
 | index.html |![index-desktop](./assets/images/wireframes/index-desktop.png) | ![index-tablet](./assets/images/wireframes/index-tablet.png) | ![index-mobile](./assets/images/wireframes/index-mobile.png) |
 | game.html | ![game-desktop](./assets/images/wireframes/game-desktop.png) | ![game-desktop](./assets/images/wireframes/game-desktop.png) | ![game-mobile](./assets/images/wireframes/game-mobile.png)
 
-# Technologies and tools used
+## Technologies and tools used
 + **HTML5:** For the basic structure.
 + **CSS3:** For styling the website.
 + **JavaScript:** For dynamic content and interactivity
@@ -196,7 +217,7 @@ Additionally, I’ve provided users with the ability to delete their stored top 
 + **Github** For version control and collaboration.
 + **Gitpod** For cloud based development environment.  
 
-# Design Overview
+## Design Overview
 The website consists of two primary pages: index.html and game.html.
 + The index page features a simple, black background with a vibrant, eye-catching image that reads "Quiz Time" to reflect the game's title, Quizzy. The image incorporates a color palette of pink, blue, yellow, and white, which is carried throughout the site for a cohesive design.
 
@@ -215,8 +236,8 @@ The user has three chances before the game ends, with a cross image appearing ea
 
 The website is fully responsive across all devices and browsers, utilizing Flexbox for layout positioning. The project is built using HTML, CSS, jQuery, and JavaScript.
 
-# Testing
-## Functional Testing
+## Testing
+### Functional Testing
 | Action | Expected Behaviour | Pass/Fail |
 |--------|--------------------|-----------|
 | Initial page load | the page should load on the index.html page | Pass | 
@@ -226,16 +247,16 @@ The website is fully responsive across all devices and browsers, utilizing Flexb
 | After Incorrect Answer | When the user selects an incorrect answer, the selected button should turn red. After a brief delay, the correct answer will be highlighted by turning its button green. An image of a cross will appear at the bottom of the screen to indicate the incorrect response.  The next question will load once the feedback is displayed. | Pass |
 | Game Finished | Once the user has used all their lives, the game will end. A pop-up screen will briefly appear, displaying the user's final score along with a message. After a few seconds, the user will be automatically redirected back to the index page, where they can choose to start the game again. | Pass |
 
-## HTML Test 
+### HTML Test 
 ![w3c-html-test](./assets/images/w3c-html-validator.png)
 
-## CSS testing
+### CSS testing
 ![w3c-css-testing](./assets/images/w3c-css.png)
 
-## Testing with JSLint
+### Testing with JSLint
 ![incorrent-answer](./assets/images/JSLint.png)
 
-# Deployment
+## Deployment
 1. **Design the Website on GitPod**:
    - Open GitPod and create a new workspace.
    - Design and develop your website within the GitPod environment.
