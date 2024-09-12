@@ -1,47 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Quizzy</title>
-        <link rel="icon" href="data:,">
-        <link rel="stylesheet" href="./assets/css/style.css">
+<head>
+    <!-- Basic meta tags for character encoding, compatibility, and responsiveness -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title and favicon -->
+    <title>Quizzy</title>
+    <link rel="icon" href="data:,">
+    
+    <!-- External CSS stylesheet for page styling -->
+    <link rel="stylesheet" href="./assets/css/style.css">
 
-        <!-- jQuery -->
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    </head>
+    <!-- jQuery library for handling DOM manipulation and events -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+</head>
 
-    <body>
-        <main>
-            <h1>Question</h1>
-            <div id="question-area"></div>
-            <div id="question-choices-area">
-                <h1>Choose one answer</h1>
-                <button class="choice-btn" data-choice="A"></button>
-                <button class="choice-btn" data-choice="B"></button>
-                <button class="choice-btn" data-choice="C"></button>
-                <button class="choice-btn" data-choice="D"></button>
+<body>
+    <main>
+        <!-- Question heading and area to display the question -->
+        <h1>Question</h1>
+        <div id="question-area"></div>
 
-                <audio id="correctSound" src="./assets/audio/correct.mp3" preload="auto"></audio>
-                <audio id="incorrectSound" src="./assets/audio/incorrectSound.mp3" preload="auto"></audio>
-            </div>
-            <div id="score-area">
-                <p>Score: <span id="score"></span></p>
-            </div>
-            <div id="three-incorrect-answers-crosses">
-                <div class="cross-box"></div>
-                <div class="cross-box"></div>
-                <div class="cross-box"></div>
-            </div>
-        </main>
+        <!-- Area for the answer choices with buttons -->
+        <div id="question-choices-area">
+            <h1>Choose one answer</h1>
+            <!-- Buttons for the answer choices -->
+            <button class="choice-btn" data-choice="A"></button>
+            <button class="choice-btn" data-choice="B"></button>
+            <button class="choice-btn" data-choice="C"></button>
+            <button class="choice-btn" data-choice="D"></button>
 
-        <div id="game-over">
-            <audio id="end-game" src="./assets/audio/game-over.mp3" preload="auto"></audio>
+            <!-- Audio for correct and incorrect answer sounds -->
+            <audio id="correctSound" src="./assets/audio/correct.mp3" preload="auto"></audio>
+            <audio id="incorrectSound" src="./assets/audio/incorrectSound.mp3" preload="auto"></audio>
         </div>
 
-        <script type="module" src="./assets/js/script.js"></script>
-    </body>
+        <!-- Score display area -->
+        <div id="score-area">
+            <p>Score: <span id="score"></span></p>
+        </div>
+
+        <!-- Visual crosses for tracking incorrect answers -->
+        <div id="three-incorrect-answers-crosses">
+            <div class="cross-box"></div>
+            <div class="cross-box"></div>
+            <div class="cross-box"></div>
+        </div>
+    </main>
+
+    <!-- Game over section with audio -->
+    <div id="game-over">
+        <audio id="end-game" src="./assets/audio/game-over.mp3" preload="auto"></audio>
+    </div>
+
+    <!-- External JavaScript file for handling game logic, using ES modules -->
+    <script type="module" src="./assets/js/script.js"></script>
+</body>
 
 </html>

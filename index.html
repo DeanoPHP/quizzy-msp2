@@ -1,59 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta name="description"
-            content="Challenge your knowledge with our fun and interactive trivia game! Test your skills across various categories, track your high score, and aim to beat your best. Play now and see how you rank!" />
-        <meta name="keywords"
-            content="trivia game, online quiz, knowledge test, quiz game, fun trivia, challenge your knowledge, high score, trivia questions, interactive quiz, brain games, general knowledge, multiple choice questions, quiz categories" />
-        <meta name="author" content="Dean Lark">
-        <meta name="robots" content="index, follow">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="data:,">
-        <title>Quizzy</title>
-        <!-- CSS Animate -->
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> -->
+<head>
+    <!-- Meta tags for description, keywords, author, and search engine settings -->
+    <meta name="description"
+        content="Challenge your knowledge with our fun and interactive trivia game! Test your skills across various categories, track your high score, and aim to beat your best. Play now and see how you rank!" />
+    <meta name="keywords"
+        content="trivia game, online quiz, knowledge test, quiz game, fun trivia, challenge your knowledge, high score, trivia questions, interactive quiz, brain games, general knowledge, multiple choice questions, quiz categories" />
+    <meta name="author" content="Dean Lark">
+    <meta name="robots" content="index, follow">
 
-        <link rel="stylesheet" href="./assets/css/style.css">
-        <!-- Include jQuery -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Charset and viewport settings for responsive design -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Include jQuery UI -->
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Favicon and page title -->
+    <link rel="icon" href="data:,">
+    <title>Quizzy</title>
 
-        <!-- Include jQuery UI CSS for styling -->
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-    </head>
+    <!-- External CSS and jQuery libraries for animation and UI components -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
-    <body>
-        <div class="container">
-            <div class="content">
-                <div id="cog-icon"></div>
-                <div id="settings">
-                    <h1>Settings For Quizzy</h1>
-                    
-                    <ul>
-                        <li>Sound: <button id="soundOnOff">Sound Off</button></li>
-                        <li>Highest Score: <span id="settingsHighScore"></span></li>
-                        <li>Reset Score: <button type="submit" id="resetScore">Reset score</button></li>
-                        <li>Game Instructions: <br> <span id="game-instructions">In Quizzy, simply click Quick Start to begin the game. You will be presented with questions, and for each one, you’ll need to choose the correct answer. If you get an answer wrong, the correct answer will be displayed, and your incorrect choice will turn red. You have 3 chances before the game ends. Your current score is shown on the screen as you play, and your highest score is saved in the Settings. Try your best and see how high you can score!</span></li>
-                    </ul>
+    <!-- jQuery UI CSS for UI components styling -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+</head>
 
-                    <button id="backToHome" type="submit">Home</button>
-                </div>
-                <div id="game-image"></div>
-                <div id="bottom_content">
-                    <h1 id="title">Welcome to Quizzy</h1>
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- Settings cog icon -->
+            <div id="cog-icon"></div>
 
-                    <button class="btn" id="sound-btn">Quick Start</button>
-                    <audio id="family-splash" src="./assets/audio/family-splash.mp3" preload="auto"></audio>
-                </div>
+            <!-- Settings panel with sound options, score display, and instructions -->
+            <div id="settings">
+                <h1>Settings For Quizzy</h1>
+                <ul>
+                    <!-- Sound toggle button -->
+                    <li>Sound: <button id="soundOnOff">Sound Off</button></li>
+                    <!-- Display highest score -->
+                    <li>Highest Score: <span id="settingsHighScore"></span></li>
+                    <!-- Button to reset the high score -->
+                    <li>Reset Score: <button type="submit" id="resetScore">Reset score</button></li>
+                    <!-- Game instructions for the player -->
+                    <li>Game Instructions: <br> 
+                        <span id="game-instructions">In Quizzy, simply click Quick Start to begin the game. 
+                            You will be presented with questions, and for each one, you’ll need to choose the correct answer. 
+                            If you get an answer wrong, the correct answer will be displayed, and your incorrect choice will turn red. 
+                            You have 3 chances before the game ends. Your current score is shown on the screen as you play, 
+                            and your highest score is saved in the Settings. Try your best and see how high you can score!
+                        </span>
+                    </li>
+                </ul>
+
+                <!-- Button to return to the home page -->
+                <button id="backToHome" type="submit">Home</button>
+            </div>
+
+            <!-- Game image section -->
+            <div id="game-image"></div>
+
+            <!-- Bottom content section with game title and start button -->
+            <div id="bottom_content">
+                <h1 id="title">Welcome to Quizzy</h1>
+
+                <!-- Quick Start button and background sound -->
+                <button class="btn" id="sound-btn">Quick Start</button>
+                <audio id="family-splash" src="./assets/audio/family-splash.mp3" preload="auto"></audio>
             </div>
         </div>
+    </div>
 
-        <script src="./assets/js/script.js"></script>
-    </body>
+    <!-- External JavaScript for game functionality -->
+    <script src="./assets/js/script.js"></script>
+</body>
 
 </html>
