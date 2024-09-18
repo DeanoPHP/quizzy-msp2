@@ -321,9 +321,16 @@ $(document).ready(function () {
         });
     };
 
+    /**
+     * This function allows the user to go back to the home
+     * page and reset the game if confirm that is what they want
+     * to do
+     */
     const backButton = function() {
         $('#goHome').on('click', function() {
-            window.location.href = global.url
+            if (window.confirm('Going home will reset the game. Are you sure?')) {
+                window.location.href = global.url
+            }   
         })
     }
 
