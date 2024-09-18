@@ -404,7 +404,7 @@ $(document).ready(function () {
                 break;
             case "/game.html":
             case "/quizzy-msp2/game.html":
-                startGame();
+                startGame();  
                 break;
             default:
                 console.log("Something has gone wrong");
