@@ -321,6 +321,12 @@ $(document).ready(function () {
         });
     };
 
+    const backButton = function() {
+        $('#goHome').on('click', function() {
+            window.location.href = global.url
+        })
+    }
+
     /**
      * Handles the game over sequence and displays a final message based on the player's score.
      * 
@@ -371,7 +377,6 @@ $(document).ready(function () {
         // Redirect the user back to index 
         setTimeout(function () {
             window.location.href = global.url;
-            // window.location.href = "/";
         }, 4000);
     };
 
@@ -405,6 +410,7 @@ $(document).ready(function () {
             case "/game.html":
             case "/quizzy-msp2/game.html":
                 startGame();  
+                backButton();
                 break;
             default:
                 console.log("Something has gone wrong");
