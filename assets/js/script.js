@@ -420,7 +420,7 @@ $(document).ready(function () {
                 backButton();
                 break;
             default:
-                console.log("Something has gone wrong");
+                console.log("Something has gone wrong!");
         }
     };
 
